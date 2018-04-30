@@ -57,7 +57,7 @@ print:
 	li $v0, 11
 	syscall
 	
-	addi $s7, $s7, 4				#increment through the UGA_ID
+	addi $s7, $s7, 4				#increment through the numbers
 	addi $t3, $t3, 1				#increment counter
 
 	j print
