@@ -1,4 +1,4 @@
-#Aaron Cai
+#Aaron
 .data
 
 numbers: .word 8, 100, 0, 3, 7, 9, 2, 7, -3, 0		#create array which holds numbers
