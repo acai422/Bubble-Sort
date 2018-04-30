@@ -1,12 +1,12 @@
 #Aaron Cai
 .data
 
-UGA_ID: .word 8, 100, 0, 3, 7, 9, 2, 7, -3, 0		#create array which holds my UGA ID
+numbers: .word 8, 100, 0, 3, 7, 9, 2, 7, -3, 0		#create array which holds numbers
 message: .asciiz "Sorted Array: "			#message to be printed
 
 .text
 main:
-	la $s7, UGA_ID					#load address of UGA_ID into $s7
+	la $s7, numbers					#load address of numbers into $s7
 
 	li $s0, 0					#initialize counter 1 for loop 1
 	li $s6, 9 					#n - 1
@@ -22,10 +22,10 @@ main:
 
 loop:
 	sll $t7, $s1, 2					#multiply $s1 by 2 and put it in t7
-	add $t7, $s7, $t7 				#add the address of UGA_ID to t7
+	add $t7, $s7, $t7 				#add the address of numbers to t7
 
-	lw $t0, 0($t7)  				#load UGA_ID[j]	
-	lw $t1, 4($t7) 					#load UGA_ID[j+1]
+	lw $t0, 0($t7)  				#load numbers[j]	
+	lw $t1, 4($t7) 					#load numbers[j+1]
 
 	slt $t2, $t0, $t1				#if t0 < t1
 	bne $t2, $zero, increment
@@ -47,7 +47,7 @@ increment:
 print:
 	beq $t3, $t4, final				#if t3 = t4 go to final
 	
-	lw $t5, 0($s7)					#load from UGA_ID
+	lw $t5, 0($s7)					#load from numbers
 	
 	li $v0, 1					#print the number
 	move $a0, $t5
